@@ -20,7 +20,7 @@ class NameData:
     async def write_persona(self, persona: Persona):
         self.filePersonas=open('personas.json','w')
         #Conseguimos el último id de la lista
-        ultima_persona=self.alimentos['personas'][-1]['id']
+        ultima_persona=self.personas['personas'][-1]['id']
         #Añadimos un nuevo id a la persona
         personaDict=persona.model_dump()
         personaDict['id']=ultima_persona+1
@@ -34,7 +34,6 @@ class NameData:
     # Recibimos y actualizamos una nueva persona
     async def update_persona(self, persona_id: int, persona: Persona):
         self.filePersonas=open('personas.json','w')
-        self.personas = json.load(self.filePersonas)
         #Buscamos la persona
         personaEncontrado=None
         personaPos=0
